@@ -1,0 +1,21 @@
+[debug] [2021-11-17T14:52:59.614Z] ----------------------------------------------------------------------
+[debug] [2021-11-17T14:52:59.617Z] Command:       D:\node.exe C:\Users\Excal\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-11-17T14:52:59.617Z] CLI Version:   9.22.0
+[debug] [2021-11-17T14:52:59.617Z] Platform:      win32
+[debug] [2021-11-17T14:52:59.617Z] Node Version:  v14.18.1
+[debug] [2021-11-17T14:52:59.618Z] Time:          Wed Nov 17 2021 09:52:59 GMT-0500 (Eastern Standard Time)
+[debug] [2021-11-17T14:52:59.618Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-17T14:52:59.628Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-17T14:52:59.628Z] > authorizing via signed-in user (brandonthedev360@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Excal\Desktop\API_Project_2
+
