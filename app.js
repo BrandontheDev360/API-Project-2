@@ -20,7 +20,7 @@ fetch('https://cors-anywhere.herokuapp.com/https://api.coinranking.com/v2/coins'
     headers: {
         // Coinranking Docs
         "Content-Type": "Application/Json",
-        "x-access-token" : `${config}`,
+        "x-access-token" : "coinranking9930ecf56a353f67088b29e24422784343dbdc4dd7d07e71",
         "Access-Control-Allow-Origin": "*"
     }
 })
