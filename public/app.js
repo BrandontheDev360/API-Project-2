@@ -18,6 +18,7 @@ if (alertTrigger) {
 
 fetch('https://cors-anywhere.herokuapp.com/https://api.coinranking.com/v2/coins', {
     method: "GET",
+    mode: 'cors',
     headers: {
         // Coinranking Docs
         "Content-Type": "Application/Json",
@@ -33,9 +34,7 @@ fetch('https://cors-anywhere.herokuapp.com/https://api.coinranking.com/v2/coins'
     console.log(json)
     console.log(json.data.coins);
     let coinsData = json.data.coins
-    const coinsChange= coinsData.change
     console.log(coinsData)
-    console.log(coinsChange)
     if (coinsData.length > 0) { //if json.data.coins array length is greater than 0 create variable cryptoCoins
         // let cryptoCoins= ''
         var cryptoCoins = '' // create empty variable for next loop
@@ -49,35 +48,25 @@ fetch('https://cors-anywhere.herokuapp.com/https://api.coinranking.com/v2/coins'
     // }
     
     // .forEach function Looping over JSON array in JavaScript https://zetcode.com/javascript/jsonforeach/
-    coinsData.forEach((coins) => { // loop adds data from json.data.coins to the table body from the api.
+    coinsData.forEach(coins => { // loop adds data from json.data.coins to the table body from the api.
         cryptoCoins += '<tr>'
         cryptoCoins += `<td> ${coins.rank} </td>`;
-        // cryptoCoins += `<td style=`(${coins.change})? color: "red": color: "green"`> ${coins.change} </td>`; // something wrong with this code need help.
+        // cryptoCoins += `<td style=`(${coins.change})? color: "red": color: "green"`> ${coins.change} </td>`; 
         cryptoCoins += `<td> ${coins.name} </td>`;
-        cryptoCoins += `<td id="positive" class="negative" > ${coins.change}% </td>`;
+        cryptoCoins += `<td id="coinsChange" > ${coins.change}% </td>`;
         cryptoCoins += `<td> $${Math.round(coins.price * 100) / 100} </td>`; // Stack overflow to find Math.round then to make it nearest .00 decimal (num * 100) /100
-        cryptoCoins += `<td> ${coins.symbol} </td>`;'<tr>';
+        cryptoCoins += `<td> ${coins.symbol} </td>`;
+        cryptoCoins += '<tr>';
         document.getElementById("apiData").innerHTML = cryptoCoins
-        var coinsChange = `${coins.change}`
-        console.log(coinsChange)
-        // if (coinsChange > 0) { 
-        //     let postive = document.getElementById("positive")
-        //     return postive.style.color = "green";
-        //     } else if (coinsChange < 0) {
-        //     let negative = document.querySelector(".negative")
-        //     return negative.style.color = "red";
-        //     }
         })
-     // stores data from json.data.coins in the tbody by element id"apiData"
-    // let change = json.data.coins.change
-    console.log(coinsData)
-    console.log(coinsChange)
-    
+
+            var coinsChange = document.querySelectorAll("#coinsChange")
+            for (let index = 0; coinsChange.length; index++) {
+                if (parseFloat(coinsChange[index].textContent) > 0) {
+                    coinsChange[index].classList.add("positive")
+                } else {
+                    coinsChange[index].classList.add("negative")
+                }
+            }
 })
-// Conditional for changing the color of the price change to green if positive and red if negative
-    // if (coinsChange > 0) { 
-    // document.getElementById("positive").style.color = "green";
-    // } else if (coinsChange < 0) {
-    // document.getElementsByClassName("negative").style.color = "red";
-    // }
     
