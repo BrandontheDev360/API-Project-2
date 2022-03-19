@@ -41,11 +41,6 @@ fetch('https://cors-anywhere.herokuapp.com/https://api.coinranking.com/v2/coins'
     } else {
         alert("Shit is hitting the fan we got a huge error")
     }
-    // if (coinsChange > 0) { 
-    // document.getElementById("positive").style.color = "green";
-    // } else if (coinsChange < 0) {
-    // document.querySelector(".negative").style.color = "red";
-    // }
     
     // .forEach function Looping over JSON array in JavaScript https://zetcode.com/javascript/jsonforeach/
     coinsData.forEach(coins => { // loop adds data from json.data.coins to the table body from the api.
@@ -56,17 +51,17 @@ fetch('https://cors-anywhere.herokuapp.com/https://api.coinranking.com/v2/coins'
         cryptoCoins += `<td id="coinsChange" > ${coins.change}% </td>`;
         cryptoCoins += `<td> $${Math.round(coins.price * 100) / 100} </td>`; // Stack overflow to find Math.round then to make it nearest .00 decimal (num * 100) /100
         cryptoCoins += `<td> ${coins.symbol} </td>`;
-        cryptoCoins += '<tr>';
+        cryptoCoins += '</tr>';
         document.getElementById("apiData").innerHTML = cryptoCoins
         })
 
-            var coinsChange = document.querySelectorAll("#coinsChange")
-            for (let index = 0; coinsChange.length; index++) {
-                if (parseFloat(coinsChange[index].textContent) > 0) {
-                    coinsChange[index].classList.add("positive")
-                } else {
-                    coinsChange[index].classList.add("negative")
-                }
+        var coinsChange = document.querySelectorAll("#coinsChange")
+        for (let index = 0; coinsChange.length; index++) {
+            if (parseFloat(coinsChange[index].textContent) >= 0) {
+                coinsChange[index].classList.add("positive")
+            } else {
+                coinsChange[index].classList.add("negative")
             }
+        }
 })
     
